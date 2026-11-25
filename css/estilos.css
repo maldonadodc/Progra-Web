@@ -1,0 +1,130 @@
+/* =========================================================
+   1. VARIABLES Y BASE
+   ========================================================= */
+:root{--c:#ff5a1f;--o:#14161a;--g:#1f2329;--t:#f2f2f2;--m:#9aa3ad}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Arial,sans-serif;background:var(--o);color:var(--t);line-height:1.5}
+
+/* =========================================================
+   2. CABECERA Y NAVEGACIÓN
+   ========================================================= */
+header{position:sticky;top:0;z-index:10;background:#0c0d10;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:12px 5%;border-bottom:2px solid var(--c)}
+.logo{font-weight:800;font-size:1.3rem;color:var(--c)}
+nav a,nav button{color:var(--t);text-decoration:none;margin-left:16px;background:none;border:0;font:inherit;cursor:pointer}
+nav a:hover,nav button:hover{color:var(--c)}
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:48px 5%;background:linear-gradient(90deg,#0c0d10f5 5%,#0c0d10bb 45%,#0c0d1020),url("../img/portada.jpg") right 50% center/cover no-repeat #0c0d10}
+.hero h1{font-size:clamp(2rem,6vw,4rem);max-width:700px}
+.hero p{color:#e4e7eb;margin:16px 0 24px;max-width:520px}
+
+/* =========================================================
+   4. SECCIONES Y TIPOGRAFÍA
+   ========================================================= */
+section{padding:60px 5%}
+section[id]{scroll-margin-top:100px}
+h2{color:var(--c);margin-bottom:24px;font-size:1.8rem}
+small{color:var(--m)}
+
+/* =========================================================
+   5. LAYOUT (rejilla, centrado, pestañas)
+   ========================================================= */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.centro{display:flex;justify-content:center;align-items:center;min-height:100vh}
+.centro form{width:min(100% - 32px, 440px)}
+.tabs{position:sticky;top:58px;z-index:9;background:#0c0d10;padding:10px 5%;display:flex;gap:10px;flex-wrap:wrap}
+
+/* =========================================================
+   6. BOTONES
+   ========================================================= */
+.btn{display:inline-block;background:var(--c);color:#fff;border:0;padding:10px 20px;border-radius:8px;cursor:pointer;font:inherit;font-weight:600;text-decoration:none}
+.btn:hover{filter:brightness(1.15)}
+.btn.peq{padding:5px 10px;font-size:.85rem}
+.btn.sec{background:#333}
+
+/* =========================================================
+   7. TARJETAS
+   ========================================================= */
+.card{background:var(--g);padding:20px;border-radius:12px;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px #0008}
+.card h3{margin-bottom:8px}
+.card ul{margin:10px 0 0 18px;color:var(--m)}
+.card .btn{margin-top:18px}
+.precio{font-size:2rem;color:var(--c);font-weight:800}
+.num{font-size:2rem;font-weight:800;color:var(--c)}
+.resumen-plan{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:16px 0;padding:14px;border:1px solid var(--c);border-radius:8px;color:var(--t)}
+.resumen-plan span{color:var(--c);font-weight:800}
+
+/* Tarjetas con detalle desplegable (clases, rutas, nutrición, suplementos) */
+.detalle-oculto{display:none;margin-top:12px;color:var(--m)}
+.expandida .detalle-oculto,.suplemento-hover:hover .detalle-oculto,.tarjeta-clase:hover .detalle-oculto,.ruta-interactiva:hover .detalle-oculto,.nutricion:hover .detalle-oculto{display:block}
+.detalle-mousedown{user-select:none;cursor:default}
+.tarjeta-clase small,.nutricion small{display:block;margin-top:10px;color:var(--m)}
+
+/* =========================================================
+   8. IMÁGENES Y GALERÍA
+   ========================================================= */
+.imagen-seccion,.imagen-clase,.foto img{display:block;width:100%;object-fit:cover}
+.imagen-seccion{height:clamp(180px,26vw,370px);margin-bottom:20px;border-radius:12px}
+.imagen-clase{aspect-ratio:3/2;border-radius:8px;margin-bottom:12px}
+.foto{overflow:hidden;border-radius:12px;background:var(--g)}
+.foto img{aspect-ratio:3/2}
+.foto figcaption{padding:10px 14px;color:var(--t)}
+
+/* =========================================================
+   9. CARRUSEL
+   ========================================================= */
+.carrusel{position:relative;width:min(100%,760px);margin:0 auto;padding:0 72px}
+.carrusel .card,.foto-carrusel{width:100%;margin:0 auto}
+.carrusel-control{position:absolute;top:50%;z-index:2;width:56px;height:56px;transform:translateY(-50%);border:2px solid #fff;border-radius:50%;background:var(--c);color:#fff;font-size:2.5rem;line-height:.8;cursor:pointer;box-shadow:0 4px 14px #000a}
+.carrusel-control.anterior{left:4px}
+.carrusel-control.siguiente{right:4px}
+.carrusel-control:hover{filter:brightness(1.15)}
+
+/* =========================================================
+   10. TABLAS
+   ========================================================= */
+table{width:100%;border-collapse:collapse;background:var(--g);border-radius:12px;overflow:hidden}
+th,td{padding:10px 12px;border-bottom:1px solid #333;text-align:left}
+th{background:#000;color:var(--c)}
+.tabla-scroll{overflow-x:auto}
+
+/* =========================================================
+   11. FORMULARIOS
+   ========================================================= */
+input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;background:#0c0d10;color:var(--t);border:1px solid #444;border-radius:8px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--c)}
+label{font-size:.9rem;color:var(--m)}
+form,.caja{background:var(--g);padding:24px;border-radius:12px;max-width:620px}
+.form-salir{display:inline;padding:0;background:none}
+#l-resultado:not(:empty){margin-top:12px}
+iframe{width:100%;height:220px;border:0;border-radius:8px;margin-top:10px}
+
+/* =========================================================
+   12. PIE DE PÁGINA
+   ========================================================= */
+footer{text-align:center;padding:24px;color:var(--m);border-top:1px solid #333}
+
+/* =========================================================
+   13. UTILIDADES
+   ========================================================= */
+.ok{color:#4ade80}
+.err{color:#f87171}
+.oculto{display:none}
+
+/* =========================================================
+   14. RESPONSIVE (pantallas de 700px o menos)
+   ========================================================= */
+@media (max-width:700px){
+  header nav{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px}
+  nav a,nav button{margin-left:0}
+  .hero{background-position:64% center}
+  .tabs{position:static}
+  section[id]{scroll-margin-top:155px}
+  .carrusel{padding:0 44px}
+  .carrusel-control{width:44px;height:44px;font-size:2rem}
+  .carrusel-control.anterior{left:0}
+  .carrusel-control.siguiente{right:0}
+}
